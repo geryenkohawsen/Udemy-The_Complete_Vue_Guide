@@ -9,25 +9,27 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="https://unpkg.com/vue@3"></script>
     <script src="app.js" defer></script>
   </head>
   <body>
     <section id="assignment">
       <!-- 1) Output your name -->
-      <h2>YOUR NAME</h2>
+      <h2>{{name}}</h2>
       <!-- 2) Output your age -->
-      <p>YOUR AGE</p>
+      <p>{{age}}</p>
       <!-- 3) Output your age + 5 -->
-      <p>YOUR AGE in 5 years</p>
+      <p>{{age + 1}} next years</p>
+      <p>{{agePlus6()}} in 6 years</p>
       <!-- 4) Output a random number (0 to 1) -->
-      <p>Favorite Number: RANDOM NUMBER BETWEEN 0 AND 1</p>
+      <p>Favorite Number: {{ Math.random() }}</p>
+      <p>Favorite Number: {{ randomNumber() }}</p>
       <div>
         <!-- 5) Display some image you found via Google -->
-        <img src="SOME IMAGE URL" />
+        <img v-bind:src="imgLink" />
       </div>
       <!-- 6) Prepopulate the input field with your name via the "value" attribute -->
-      <input type="text" />
+      <input type="text" v-bind:value="name" />
     </section>
   </body>
 </html>
