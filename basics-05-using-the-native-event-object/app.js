@@ -13,7 +13,7 @@ const app = Vue.createApp({
 				const that = this;
 				setTimeout(function () {
 					that.counter = 0;
-				}, 2000);
+				}, 100);
 			}
 		},
 		// name() {
