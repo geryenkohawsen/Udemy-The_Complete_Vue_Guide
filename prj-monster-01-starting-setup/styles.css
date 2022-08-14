@@ -30,7 +30,7 @@ section {
   height: 40px;
   border: 1px solid #575757;
   margin: 1rem 0;
-  background: #fde5e5;
+  background: #fde5e5; 
 }
 
 .healthbar__value {
