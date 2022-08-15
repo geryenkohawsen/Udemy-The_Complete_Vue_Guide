@@ -1,55 +1,85 @@
 const app = Vue.createApp({
-  data() {
-    return {
-      currentUserInput: '',
-      message: 'Vue is great!',
-    };
-  },
-  methods: {
-    saveInput(event) {
-      this.currentUserInput = event.target.value;
-    },
-    setText() {
-      // this.message = this.currentUserInput;
-      this.message = this.$refs.userText.value;
-      console.log(this.$refs.userText);
-      console.dir(this.$refs.userText);
-    },
-  },
+	data() {
+		return {
+			currentUserInput: '',
+			message: 'Vue is great!',
+		};
+	},
+	methods: {
+		saveInput(event) {
+			this.currentUserInput = event.target.value;
+		},
+		setText() {
+			// this.message = this.currentUserInput;
+			this.message = this.$refs.userText.value;
+			console.log(this.$refs.userText);
+			console.dir(this.$refs.userText);
+		},
+	},
+	// ....
+	// Vue LifeCyles
+	beforeCreate() {
+		console.log('beforeCreate()');
+	},
+	created() {
+		console.log('created()');
+	},
+	beforeMount() {
+		console.log('beforeMount()');
+	},
+	mounted() {
+		console.log('mounted()');
+	},
+	beforeUpdate() {
+		console.log('beforeUpdate()');
+	},
+	updated() {
+		console.log('updated()');
+	},
+	beforeUnmount() {
+		console.log('beforeUnmount()');
+	},
+	unmounted() {
+		console.log('unmounted()');
+	},
 });
 
 app.mount('#app');
 
+setTimeout(function () {
+	app.unmount();
+}, 3000);
+
 // ....
 // using template
 const app2 = Vue.createApp({
-  template: `
+	template: `
   <h2>Test Title</h2>
   <p>{{ favoriteMeal}}</p>
 
   `,
-  data() {
-    return {
-      favoriteMeal: 'Ramen',
-    };
-  },
+	data() {
+		return {
+			favoriteMeal: 'Ramen',
+		};
+	},
 });
 
 app2.mount('#app2');
 // ....
 // simple reactive framework
 const data = {
-  message: 'Hello!',
-  longMessage: 'Hello! World!',
+	message: 'Hello!',
+	longMessage: 'Hello! World!',
 };
 
 const handler = {
-  set(target, key, value) {
-    if (key === 'message') {
-      target.longMessage = value + 'World!';
-    }
-    target.message = value;
-  },
+	set(target, key, value) {
+		if (key === 'message') {
+			target.longMessage = value + 'World!';
+		}
+		target.message = value;
+	},
 };
 
 const proxy = new Proxy(data, handler);
