@@ -4,8 +4,8 @@
       <h1>My Friends</h1>
     </header>
     <ul>
-      <friend-contact></friend-contact>
-      <friend-contact></friend-contact>
+      <friend-contact name="Geryenko Hawsen" phone-number="123"></friend-contact>
+      <friend-contact name="abc"></friend-contact>
     </ul>
   </section>
 </template>
