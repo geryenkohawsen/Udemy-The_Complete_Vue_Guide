@@ -1,11 +1,14 @@
 <template>
   <li>
     <h2>{{ name }}</h2>
+    <h2>{{ friend.name }}</h2>
     <button @click="toggleDetails">{{ detailsAreVisible ? 'Hide' : 'Show' }} Details</button>
     <ul v-if="detailsAreVisible">
       <li>
         <strong>Phone:</strong>
-        {{ phoneNumber }}
+        {{ friend.phone }} <br>
+        {{ phoneNumber }} <br>
+        {{ dataPhoneNumber }} <br>
       </li>
       <li>
         <strong>Email:</strong>
@@ -31,6 +34,7 @@ export default {
         phone: "0123 45678 90",
         email: "manuel@localhost.com",
       },
+      dataPhoneNumber: this.phoneNumber + "add-on",
     };
   },
   methods: {
