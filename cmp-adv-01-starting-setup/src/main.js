@@ -6,6 +6,5 @@ import BaseBadge from './components/BaseBadge.vue';
 const app = createApp(App);
 
 app.component('base-badge', BaseBadge);
-app.component('badge-list', BadgeList);
 
 app.mount('#app');
