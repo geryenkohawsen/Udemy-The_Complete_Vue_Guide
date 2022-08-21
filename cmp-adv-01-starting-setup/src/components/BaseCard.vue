@@ -1,7 +1,9 @@
 <template>
   <div>
     <header>
-      <slot name="header"></slot>
+      <slot name="header">
+        <!-- <h2>Default </h2> //this is a fallback content  -->
+      </slot>
     </header>
     <slot></slot>
   </div>
@@ -9,10 +11,19 @@
 
 <script>
 export default {
+    mounted() {
+        console.log(this.$slots);
+    }
 };
 </script>
 
 <style scoped>
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 div {
   margin: 2rem auto;
   max-width: 30rem;
