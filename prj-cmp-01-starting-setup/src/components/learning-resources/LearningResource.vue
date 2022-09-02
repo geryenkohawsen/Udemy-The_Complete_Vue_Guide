@@ -3,8 +3,9 @@
     <base-card>
       <header>
         <h3>{{ title }}</h3>
-        <base-button v-if="id === 'google'">Delete</base-button>
-        <base-button v-else mode="flat">test</base-button>
+        <!-- <base-button v-if="id === 'google'">Delete</base-button> -->
+        <!-- <base-button v-else mode="flat">test</base-button> -->
+        <base-button mode="flat" @click="removeResource(id)">Delete</base-button>
       </header>
       <p>{{ description }}</p>
       <nav>
@@ -17,6 +18,7 @@
 <script>
 export default {
   props: ['id', 'title', 'description', 'link'],
+  inject: ['removeResource'],
 };
 </script>
 
