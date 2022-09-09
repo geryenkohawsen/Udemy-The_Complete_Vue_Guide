@@ -1,6 +1,6 @@
 <template>
   <the-navigation @set-page="setActivePage"></the-navigation>
-  <main><router-view></router-view>></main>
+  <main><router-view></router-view></main>
 </template>
 
 <script>
