@@ -9,6 +9,7 @@
         :role="member.role"
       ></user-item>
     </ul>
+    <router-link to="/teams/t2">Click Me!</router-link>
   </section>
 </template>
 
@@ -26,19 +27,29 @@ export default {
       members: [],
     };
   },
-  created() {
-    // we can use console.log(this.$route) to see all available route in the project
-    const teamId = this.$route.params.teamId; // holds all the route parameters used in the current page
-    const selectedTeam = this.teams.find((team) => team.id === teamId);
-    const members = selectedTeam.members;
-    const selectedMembers = [];
-    for (const member of members) {
-      const selectedUser = this.users.find((user) => user.id === member);
-      selectedMembers.push(selectedUser);
-    }
+  methods: {
+    loadTeamMembers(route) {
+      // we can use console.log(this.$route) to see all available route in the project
+      const teamId = route.params.teamId; // holds all the route parameters used in the current page
+      const selectedTeam = this.teams.find((team) => team.id === teamId);
+      const members = selectedTeam.members;
+      const selectedMembers = [];
+      for (const member of members) {
+        const selectedUser = this.users.find((user) => user.id === member);
+        selectedMembers.push(selectedUser);
+      }
 
-    this.members = selectedMembers;
-    this.teamName = selectedTeam.name;
+      this.members = selectedMembers;
+      this.teamName = selectedTeam.name;
+    },
+  },
+  created() {
+    this.loadTeamMembers(this.$route);
+  },
+  watch: {
+    $route(newRoute) {
+      this.loadTeamMembers(newRoute);
+    },
   },
 };
 </script>
